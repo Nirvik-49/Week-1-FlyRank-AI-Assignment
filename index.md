@@ -45,7 +45,7 @@ Can we systematically predict high-impression, underperforming web pages that yi
 | Position-CTR Rule (Baseline) | 0.651 | 0.382 | 52.0% | 2.8x |
 | **LightGBM Refresh Model** | **0.814** | **0.597** | **78.0%** | **4.2x** |
 
-![CTR vs Position Distribution](./work/figures/ctr_distribution.png)
+![Content Refresh Target Identification: Impressions vs. CTR](./work/figures/impressions_vs_ctr.png.png)
 *Figure 1: Observed CTR distribution and position gap analysis from warehouse data.*
 
 * **Error Analysis:** Primary false positives occur on broad, informational head-term queries where high impressions naturally yield low CTR despite top positions. False negatives occur on niche long-tail pages with low total impressions but high conversion intent.

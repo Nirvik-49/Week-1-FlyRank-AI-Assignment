@@ -17,11 +17,11 @@ Is there a way of accurately predicting which of the web pages with many impress
 
 ---
 
-- Unit of Analysis: Individual content page (content_hash_id) for rolling daily and 90-day Search Console windows.
-- Output: A continuously updated refresh priority score (S) that can range from 0 to 1 with the machine-picked reason (example: "High Impression / Low CTR", "Striking Distance Decay", "metadata mismatch").
-- Human Action: A FlyRank content editor uses the ranked action engine to place certain pages into the position queue for title tag/meta description changes, structural content refreshes, or search intent realignment.
-- Cost of Wrong Call: The waste of editor man-hours due to false alarm situations that lead to the tagging and revision of content which might have been already fine or is affected by off-siteseasonality; and missed out high-opportunity organic traffic in the false negatives not appearing on pages 1-2.
-- Why Data/ML Helps: A detailed assessment of 10,000 manual pages is not a feasible task, while a deep learning model can capture the complex relationships among average page rank, impression spread, query diversity, and click-through ratio fluctuation.
+- **Unit of Analysis**: Individual content page (content_hash_id) for rolling daily and 90-day Search Console windows.
+- **Output**: A continuously updated refresh priority score (S) that can range from 0 to 1 with the machine-picked reason (example: "High Impression / Low CTR", "Striking Distance Decay", "metadata mismatch").
+- **Human Action**: A FlyRank content editor uses the ranked action engine to place certain pages into the position queue for title tag/meta description changes, structural content refreshes, or search intent realignment.
+- **Cost of Wrong Call**: The waste of editor man-hours due to false alarm situations that lead to the tagging and revision of content which might have been already fine or is affected by off-siteseasonality; and missed out high-opportunity organic traffic in the false negatives not appearing on pages 1-2.
+- **Why Data/ML Helps**: A detailed assessment of 10,000 manual pages is not a feasible task, while a deep learning model can capture the complex relationships among average page rank, impression spread, query diversity, and click-through ratio fluctuation.
 
 ## 2. Data safety
 
@@ -37,9 +37,9 @@ Is there a way of accurately predicting which of the web pages with many impress
 
 - **Baseline Definition**: A rule-based benchmark flagging pages where overall_ctr falls below the 25th percentile for their respective integer mean_position bin (Position 1–3, 4–10, 11–20), combined with total_impressions > 500.
 - **Fairness & Metrics**: Evaluated on the exact same group-split test dataset and target definition as the ML pipeline.
-    - Baseline Precision@Top-100: 52.0%
-    - Baseline ROC-AUC: 0.651
-    - Baseline Base Rate (Target Class): 18.4%
+    - **Baseline Precision@Top-100**: 52.0%
+    - **Baseline ROC-AUC**: 0.651
+    - **Baseline Base Rate (Target Class)**: 18.4%
 
 ## 4. Model / analysis
 
@@ -48,11 +48,11 @@ Is there a way of accurately predicting which of the web pages with many impress
 - **Method**: binary classifier with LightGBM, which was trained on binary logarithmic loss and early stopping based on the minimum loss achieved on the validation subset to prevent overfitting.
 - **Target Proxy Definition**: A page is considered a high-value refresh opportunity (target=1) if it has an impression volume greater than the 75th percentile in total_impressions and, at the same time, it is in the group that has the minimum value for expected position-adjusted CTR, yet the rank should not change much (mean_position ≤ 20).
 - **Features Included**:
-    - log_impressions: Log-transformed 90-day GSC impressions.
-    - mean_position: Average Search Console ranking position.
-    - ctr_position_gap: Difference between observed CTR and position-expected benchmark CTR.
-    - query_count: Total distinct queries driving impressions to the page.
-    - top_query_share: Impression concentration ratio of the primary search query.
+    - **log_impressions**: Log-transformed 90-day GSC impressions.
+    - **mean_position**: Average Search Console ranking position.
+    - **ctr_position_gap**: Difference between observed CTR and position-expected benchmark CTR.
+    - **query_count**: Total distinct queries driving impressions to the page.
+    - **top_query_share**: Impression concentration ratio of the primary search query.
 - **Features Excluded**: Target leakage indicators (trend_pct), pseudonymous IDs (content_hash_id, client_hash_id), and unaggregated raw timestamps.
 
 ## 5. Evaluation
@@ -70,7 +70,7 @@ Is there a way of accurately predicting which of the web pages with many impress
 | **LightGBM Refresh Model** | 0.814 | 0.597 | 78.0% | 4.2x |
 - **Error Analysis**: Most of the false positives are the top results (with deep impressions) that are the result of broad and information-driven queries. The low CTR is because of this. A false negative means a niche and lengthy tail page with low impressions, still high conversion intent.
 
-![Content Refresh Target Identification: Impressions vs. CTR](./figures/impressions_vs_ctr.png)
+![Content Refresh Target Identification: Impressions vs. CTR](./work/figures/impressions_vs_ctr.png)
 
 *Figure 1: Log-scale distribution of Total Impressions vs. Overall CTR (%) surfacing high-impression, low-CTR candidate pages.*
 

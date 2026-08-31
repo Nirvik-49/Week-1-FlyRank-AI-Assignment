@@ -37,9 +37,9 @@ Is there a way of accurately predicting which of the web pages with many impress
 
 - **Baseline Definition**: A rule-based benchmark flagging pages where overall_ctr falls below the 25th percentile for their respective integer mean_position bin (Position 1–3, 4–10, 11–20), combined with total_impressions > 500.
 - **Fairness & Metrics**: Evaluated on the exact same group-split test dataset and target definition as the ML pipeline.
-    - Baseline Precision@Top-100: 52.0%
-    - Baseline ROC-AUC: 0.651
-    - Baseline Base Rate (Target Class): 18.4%
+    - **Baseline Precision@Top-100**: 52.0%
+    - **Baseline ROC-AUC**: 0.651
+    - **Baseline Base Rate (Target Class)**: 18.4%
 
 ## 4. Model / analysis
 
@@ -48,11 +48,11 @@ Is there a way of accurately predicting which of the web pages with many impress
 - **Method**: binary classifier with LightGBM, which was trained on binary logarithmic loss and early stopping based on the minimum loss achieved on the validation subset to prevent overfitting.
 - **Target Proxy Definition**: A page is considered a high-value refresh opportunity (target=1) if it has an impression volume greater than the 75th percentile in total_impressions and, at the same time, it is in the group that has the minimum value for expected position-adjusted CTR, yet the rank should not change much (mean_position ≤ 20).
 - **Features Included**:
-    - log_impressions: Log-transformed 90-day GSC impressions.
-    - mean_position: Average Search Console ranking position.
-    - ctr_position_gap: Difference between observed CTR and position-expected benchmark CTR.
-    - query_count: Total distinct queries driving impressions to the page.
-    - top_query_share: Impression concentration ratio of the primary search query.
+    - **log_impressions**: Log-transformed 90-day GSC impressions.
+    - **mean_position**: Average Search Console ranking position.
+    - **ctr_position_gap**: Difference between observed CTR and position-expected benchmark CTR.
+    - **query_count**: Total distinct queries driving impressions to the page.
+    - **top_query_share**: Impression concentration ratio of the primary search query.
 - **Features Excluded**: Target leakage indicators (trend_pct), pseudonymous IDs (content_hash_id, client_hash_id), and unaggregated raw timestamps.
 
 ## 5. Evaluation

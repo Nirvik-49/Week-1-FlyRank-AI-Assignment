@@ -67,7 +67,7 @@ Is there a way of accurately predicting which of the web pages with many impress
 | Position-CTR Rule (Baseline) | 0.651 | 0.382 | 52.0% | 2.8x |
 | **LightGBM Refresh Model** | **0.814** | **0.597** | **78.0%** | **4.2x** |
 
-![Content Refresh Target Identification: Impressions vs. CTR](./work/figures/impressions_vs_ctr.png)
+![Content Refresh Target Identification: Impressions vs. CTR](./figures/impressions_vs_ctr.png)
 
 *Figure 1: Log-scale distribution of Total Impressions vs. Overall CTR (%) surfacing high-impression, low-CTR candidate pages.*
 

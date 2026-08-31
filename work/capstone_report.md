@@ -70,6 +70,10 @@ Is there a way of accurately predicting which of the web pages with many impress
 | **LightGBM Refresh Model** | 0.814 | 0.597 | 78.0% | 4.2x |
 - **Error Analysis**: Most of the false positives are the top results (with deep impressions) that are the result of broad and information-driven queries. The low CTR is because of this. A false negative means a niche and lengthy tail page with low impressions, still high conversion intent.
 
+![Content Refresh Target Identification: Impressions vs. CTR](./work/figures/impressions_vs_ctr.png.png)
+
+*Figure 1: Log-scale distribution of Total Impressions vs. Overall CTR (%) surfacing high-impression, low-CTR candidate pages.*
+
 ## 6. Interpretation
 
 ---

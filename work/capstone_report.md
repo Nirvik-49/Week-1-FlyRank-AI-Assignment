@@ -59,15 +59,14 @@ Is there a way of accurately predicting which of the web pages with many impress
 
 ---
 
-- **Split Strategy**: GroupKFold split grouped by client_hash_id (80% train / 20% test) to ensure zero cross-client data leakage and measure out-of-domain client generalization.
-- **Model vs Baseline Performance**:
+* **Split Strategy:** GroupKFold split grouped by client_hash_id (80% train / 20% test) to ensure zero cross-client data leakage and measure out-of-domain client generalization.
 
-| **Model / Approach**
- | **ROC-AUC** | **PR-AUC** | **Precision@100** | **Lift over Base Rate** |
-| --- | --- | --- | --- | --- |
-| **Random / Base Rate** | 0.500 | 0.184 | 18.4% | 1.0x |
-| **Position-CTR Rule (Baseline)** | 0.651 | 0.382 | 52.0% | 2.8x |
-| **LightGBM Refresh Model** | 0.814 | 0.597 | 78.0% | 4.2x |
+| Model / Approach | ROC-AUC | PR-AUC | Precision@100 | Lift over Base Rate |
+|---|---|---|---|---|
+| Random / Base Rate | 0.500 | 0.184 | 18.4% | 1.0x |
+| Position-CTR Rule (Baseline) | 0.651 | 0.382 | 52.0% | 2.8x |
+| **LightGBM Refresh Model** | **0.814** | **0.597** | **78.0%** | **4.2x** |
+
 - **Error Analysis**: Most of the false positives are the top results (with deep impressions) that are the result of broad and information-driven queries. The low CTR is because of this. A false negative means a niche and lengthy tail page with low impressions, still high conversion intent.
 
 ![Content Refresh Target Identification: Impressions vs. CTR](./figures/impressions_vs_ctr.png)

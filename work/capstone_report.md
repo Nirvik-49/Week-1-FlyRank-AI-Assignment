@@ -102,18 +102,18 @@ Is there a way of accurately predicting which of the web pages with many impress
 * **Commands:**
 
 ```bash
-git clone https://github.com/Nirvik-49/Week-1-FlyRank-AI-Assignment.git
+git clone [https://github.com/Nirvik-49/Week-1-FlyRank-AI-Assignment.git](https://github.com/Nirvik-49/Week-1-FlyRank-AI-Assignment.git)
 cd Week-1-FlyRank-AI-Assignment
 pip install -r requirements.txt
 python work/build_features.py --seed 42
 python work/train_eval.py --seed 42
 ```
 
-- **Environment & Random Seed**: Python 3.10+, DuckDB 1.0.0+, LightGBM 4.0+, Scikit-Learn 1.3+. Fixed global random seed: 42.
-- **Holdout Validation**: work/holdout_metrics.json and work/sealed_frame.parquet are committed in the repository, containing verified blind evaluation metrics.
+* **Environment & Random Seed:** Python 3.10+, DuckDB 1.0.0+, LightGBM 4.0+, Scikit-Learn 1.3+. Fixed global random seed: 42.
+* **Holdout Validation:** `work/holdout_metrics.json` and `work/sealed_frame.parquet` are committed in the repository, containing verified blind evaluation metrics.
 
-## **9. Acknowledgments & data credit**
+## 9. Acknowledgments & data credit
 
 ---
 
-Built on the FlyRank ML Internship dataset linking to https://flyrank.ai.
+Built on the FlyRank ML Internship dataset linking to [https://flyrank.ai](https://flyrank.ai).

@@ -17,11 +17,11 @@ Is there a way of accurately predicting which of the web pages with many impress
 
 ---
 
-- Unit of Analysis: Individual content page (content_hash_id) for rolling daily and 90-day Search Console windows.
-- Output: A continuously updated refresh priority score (S) that can range from 0 to 1 with the machine-picked reason (example: "High Impression / Low CTR", "Striking Distance Decay", "metadata mismatch").
-- Human Action: A FlyRank content editor uses the ranked action engine to place certain pages into the position queue for title tag/meta description changes, structural content refreshes, or search intent realignment.
-- Cost of Wrong Call: The waste of editor man-hours due to false alarm situations that lead to the tagging and revision of content which might have been already fine or is affected by off-siteseasonality; and missed out high-opportunity organic traffic in the false negatives not appearing on pages 1-2.
-- Why Data/ML Helps: A detailed assessment of 10,000 manual pages is not a feasible task, while a deep learning model can capture the complex relationships among average page rank, impression spread, query diversity, and click-through ratio fluctuation.
+- **Unit of Analysis**: Individual content page (content_hash_id) for rolling daily and 90-day Search Console windows.
+- **Output**: A continuously updated refresh priority score (S) that can range from 0 to 1 with the machine-picked reason (example: "High Impression / Low CTR", "Striking Distance Decay", "metadata mismatch").
+- **Human Action**: A FlyRank content editor uses the ranked action engine to place certain pages into the position queue for title tag/meta description changes, structural content refreshes, or search intent realignment.
+- **Cost of Wrong Call**: The waste of editor man-hours due to false alarm situations that lead to the tagging and revision of content which might have been already fine or is affected by off-siteseasonality; and missed out high-opportunity organic traffic in the false negatives not appearing on pages 1-2.
+- **Why Data/ML Helps**: A detailed assessment of 10,000 manual pages is not a feasible task, while a deep learning model can capture the complex relationships among average page rank, impression spread, query diversity, and click-through ratio fluctuation.
 
 ## 2. Data safety
 

@@ -101,8 +101,6 @@ Is there a way of accurately predicting which of the web pages with many impress
 
 * **Commands:**
 
----
-
 ```bash
 git clone https://github.com/Nirvik-49/Week-1-FlyRank-AI-Assignment.git
 cd Week-1-FlyRank-AI-Assignment
